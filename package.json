@@ -1,0 +1,56 @@
+{
+  "name": "@paean-ai/claude-code-wechat",
+  "version": "0.1.0",
+  "description": "WeChat channel plugin for Claude Code — bridge WeChat messages into Claude Code sessions via the official ilink API",
+  "type": "module",
+  "bin": {
+    "claude-wechat": "./dist/cli.js",
+    "claude-wechat-server": "./dist/channel.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "commander": "^13.0.0",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "wechat",
+    "mcp",
+    "channel",
+    "weixin",
+    "chatbot",
+    "ai"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paean-ai/claude-code-wechat.git"
+  },
+  "homepage": "https://github.com/paean-ai/claude-code-wechat#readme",
+  "bugs": {
+    "url": "https://github.com/paean-ai/claude-code-wechat/issues"
+  },
+  "author": "Paean AI",
+  "license": "MIT"
+}

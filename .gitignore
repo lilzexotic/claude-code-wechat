@@ -1,0 +1,23 @@
+node_modules/
+dist/
+*.tgz
+
+.env
+.env.*
+
+# Credential files (never commit)
+account.json
+sync_buf.txt
+
+# IDE
+.claude/
+.cursor/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Lock files (regenerated on install)
+bun.lock
